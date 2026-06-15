@@ -36,16 +36,22 @@ export async function POST(req: NextRequest) {
   });
 
   const resendKey = process.env.RESEND_API_KEY;
-  const notifyTo = process.env.NOTIFY_EMAIL_TO;
+  const notifyTo =
+    process.env.NOTIFY_EMAIL_TO || process.env.VIP_ALERT_EMAIL || "damatnic@gmail.com";
 
-  if (resendKey && notifyTo) {
+  if (resendKey) {
     try {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
       await resend.emails.send({
         from: process.env.NOTIFY_EMAIL_FROM ?? "onboarding@resend.dev",
         to: notifyTo,
-        subject: `Resume downloaded from ${referrer}`,
+        subject: `📄 Resume downloaded — ${referrer}`,
+        headers: {
+          'X-Priority': '1',
+          'X-MSMail-Priority': 'High',
+          'Importance': 'High',
+        },
         text:
           `Someone downloaded your resume.\n\n` +
           `Time: ${new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })} CT\n` +
