@@ -14,12 +14,14 @@ export const metadata: Metadata = {
       "Interactive dashboard: 1,343 Olympic medal records, scraped and enriched by a Python ETL, filterable in the browser.",
     type: "article",
     url: "/projects/olympic-medals",
+    images: ["/projects/olympic-medals/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Olympic Medal Pipeline | Nicholas D'Amato",
     description:
       "Interactive dashboard: 1,343 Olympic medal records, scraped and enriched by a Python ETL, filterable in the browser.",
+    images: ["/projects/olympic-medals/opengraph-image"],
   },
 };
 

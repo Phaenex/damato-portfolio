@@ -10,7 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **Key conventions:**
 - Tailwind v4 uses `@tailwindcss/postcss`, not v3's config file
-- OG images are `opengraph-image.tsx` / `twitter-image.tsx` files in route directories — Next.js file conventions. Every route has both.
+- OG images are `opengraph-image.tsx` / `twitter-image.tsx` files in route directories, generated via the shared `src/lib/og.tsx` (`ImageResponse`). Every route has both.
 - The homepage is a server component; its tech filter lives in the `WorkList` client component (`src/components/WorkList.tsx`). The Olympic medals dashboard (`useMemo` + `useState`) is a client component. Project case-study pages and `/now` are server components
 - Color palette: `stone-950` bg, `stone-100` text, accent via CSS var `--accent`
 
@@ -67,8 +67,12 @@ Template without secrets: [`env.example`](env.example).
 
 **Build checks before shipping:**
 ```bash
+npm run typecheck
+npm test
 npm run build
-npx tsc --noEmit
+npm run test:e2e
 ```
+
+Asset validation runs on `dev` and `build` via `predev` / `prebuild`. See README.md Assets section.
 
 **Related local projects:** python-mastery, sql-mastery (see their AGENTS.md)

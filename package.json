@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "validate:assets": "node scripts/validate-assets.mjs",
+    "predev": "npm run validate:assets",
+    "prebuild": "npm run validate:assets",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@upstash/ratelimit": "^2.0.8",
@@ -21,6 +26,7 @@
     "resend": "^6.12.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

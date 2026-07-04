@@ -1,7 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { todayKey } from "@/lib/analyticsTime";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { checkAndAlertVip } from "@/lib/vipAlert";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const ratelimit = process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
   ? new Ratelimit({
@@ -179,7 +181,28 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   void pushToKV(record);
 
-  return new NextResponse(null, { 
+  // VIP detection — deferred via after() so it runs after the 204 response
+  // is sent but before Vercel tears down the function.
+  // Anthropic UAs (ClaudeBot, etc.) are caught by isBot() because they contain
+  // the word "bot". We intentionally bypass the bot gate for them so crawls
+  // from Anthropic still trigger the alert.
+  const isAnthropicUa = /anthropic|claudebot|claude-web|claude-ai/i.test(userAgent ?? '');
+  if (record.type === 'pageview' && (!record.bot || isAnthropicUa)) {
+    after(
+      checkAndAlertVip({
+        ip,
+        userAgent,
+        path: record.path,
+        country,
+        city,
+        referrer: record.referrer,
+        site: SITE_NAME,
+        siteUrl: SITE_URL,
+      }),
+    );
+  }
+
+  return new NextResponse(null, {
     status: 204,
     headers: {
       'Access-Control-Allow-Origin': '*',

@@ -18,12 +18,14 @@ export const metadata = {
       "Three-page Power BI dashboard on a star schema: DAX measures, drill-through, employee scorecard, and salary-vs-review analysis.",
     type: "article",
     url: "/projects/power-bi-sales-dashboard",
+    images: ["/projects/power-bi-sales-dashboard/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Power BI Sales Dashboard | Nicholas D'Amato",
     description:
       "Three-page Power BI dashboard on a star schema: DAX measures, drill-through, employee scorecard, and salary-vs-review analysis.",
+    images: ["/projects/power-bi-sales-dashboard/opengraph-image"],
   },
 };
 
@@ -254,7 +256,7 @@ YoY Growth =
         <figure className="mt-6 overflow-hidden rounded-xl border border-stone-800 bg-stone-950">
           <Image
             src="/projects/power-bi/page-1-sales-overview.png"
-            alt="Placeholder wireframe for Sales Overview: header title, row of four empty KPI slots, large panel noting KPI cards line chart map and top products. Open the .pbip in Power BI Desktop for the real visuals."
+            alt="Placeholder wireframe for Sales Overview: header title, row of four empty KPI slots, large panel noting KPI cards, line chart, map, and top products. Open the .pbip in Power BI Desktop for the real visuals."
             width={1600}
             height={900}
             sizes="(min-width: 768px) 768px, 100vw"
@@ -272,7 +274,7 @@ YoY Growth =
         <figure className="mt-6 overflow-hidden rounded-xl border border-stone-800 bg-stone-950">
           <Image
             src="/projects/power-bi/page-2-sales-details.png"
-            alt="Placeholder wireframe for Sales Details: header, four empty KPI slots, panel labeled employee scorecard commission promotions. Open the .pbip in Power BI Desktop for the real visuals."
+            alt="Placeholder wireframe for Sales Details: header, four empty KPI slots, panel labeled employee scorecard, commission, promotions. Open the .pbip in Power BI Desktop for the real visuals."
             width={1600}
             height={900}
             sizes="(min-width: 768px) 768px, 100vw"

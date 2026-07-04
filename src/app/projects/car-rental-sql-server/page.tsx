@@ -19,12 +19,14 @@ export const metadata = {
       "SQL Server schema from an ER diagram: year-based partitioning, audit triggers, and dynamic SQL for portable file paths.",
     type: "article",
     url: "/projects/car-rental-sql-server",
+    images: ["/projects/car-rental-sql-server/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Car Rental Database | Nicholas D'Amato",
     description:
       "SQL Server schema from an ER diagram: year-based partitioning, audit triggers, and dynamic SQL for portable file paths.",
+    images: ["/projects/car-rental-sql-server/opengraph-image"],
   },
 };
 

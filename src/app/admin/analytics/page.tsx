@@ -161,10 +161,10 @@ function WhenPeopleVisit({
           {dayOfWeek.map((d) => (
             <div key={d.day} className="flex flex-col items-center gap-1">
               <span className="text-[10px] text-stone-400">{d.day}</span>
-              <div className="flex items-end" style={{ height: "64px" }}>
+              <div className="analytics-bar-track analytics-bar-track--64">
                 <div
-                  className="w-4 rounded-t bg-[var(--accent)]"
-                  style={{ height: `${Math.max((d.count / dayMax) * 60, 2)}px` }}
+                  className="analytics-bar w-4 rounded-t bg-[var(--accent)]"
+                  style={{ ["--bar-h" as string]: `${Math.max((d.count / dayMax) * 60, 2)}px` }}
                   title={`${d.count} pageviews`}
                 />
               </div>
@@ -175,12 +175,12 @@ function WhenPeopleVisit({
       </div>
       <div className="rounded border border-stone-800 bg-stone-900/50 p-4">
         <h3 className="mb-3 text-sm font-semibold text-stone-200">By hour of day (CT)</h3>
-        <div className="flex items-end gap-[3px]" style={{ height: "72px" }}>
+        <div className="analytics-bar-track analytics-bar-track--72 gap-[3px]">
           {hourOfDay.map((h) => (
             <div
               key={h.hour}
-              className="flex-1 rounded-t bg-[var(--accent)]"
-              style={{ height: `${Math.max((h.count / hourMax) * 64, 2)}px` }}
+              className="analytics-bar analytics-bar--hour"
+              style={{ ["--bar-h" as string]: `${Math.max((h.count / hourMax) * 64, 2)}px` }}
               title={`${hourLabel(h.hour)}: ${h.count} pageviews`}
             />
           ))}
@@ -419,9 +419,9 @@ export default async function AnalyticsPage({
               return dayData.map((d) => (
                 <div key={d.date} className="flex flex-col items-center gap-1 rounded border border-stone-800 bg-stone-900/50 p-3">
                   <span className="text-[10px] text-stone-500">{d.date.slice(5)}</span>
-                  <div className="flex items-end gap-1" style={{ height: "80px" }}>
-                    <div className="w-3 rounded-t bg-[var(--accent)]" style={{ height: barH(d.pageviews) }} title={`${d.pageviews} pageviews`} />
-                    <div className="w-3 rounded-t bg-stone-600" style={{ height: barH(d.clicks) }} title={`${d.clicks} clicks`} />
+                  <div className="analytics-bar-track analytics-bar-track--80 gap-1">
+                    <div className="analytics-bar w-3 rounded-t bg-[var(--accent)]" style={{ ["--bar-h" as string]: barH(d.pageviews) }} title={`${d.pageviews} pageviews`} />
+                    <div className="analytics-bar w-3 rounded-t bg-stone-600" style={{ ["--bar-h" as string]: barH(d.clicks) }} title={`${d.clicks} clicks`} />
                   </div>
                   <div className="flex gap-2 text-[10px] text-stone-500">
                     <span>{d.pageviews}</span>
