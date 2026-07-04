@@ -1,12 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Mail } from "lucide-react";
 import { projects, sideProjects } from "@/lib/projects";
 import { ResumeDownload } from "@/components/ResumeDownload";
 import { ResumeTimeline } from "@/components/ResumeTimeline";
+import { WorkList } from "@/components/WorkList";
 
 function Github({ className }: { className?: string }) {
   return (
@@ -24,46 +22,27 @@ function Linkedin({ className }: { className?: string }) {
   );
 }
 
-// The sidebar/filter uses plain "SQL"; flagship projects tag T-SQL / SQL Server.
-const TECH_FILTER_ALIASES: Record<string, string[]> = {
-  SQL: ["T-SQL", "SQL Server"],
-};
-
-function projectUsesFilterTech(projectTech: string[], filter: string): boolean {
-  if (filter === "All") return true;
-  const needles = TECH_FILTER_ALIASES[filter] ?? [filter];
-  return needles.some((n) => projectTech.includes(n));
-}
-
 const NAV = [
   { n: "01", label: "Selected work", href: "#work" },
-  { n: "02", label: "Experience", href: "#experience" },
-  { n: "03", label: "About", href: "#about" },
-  { n: "04", label: "Now", href: "/now" },
+  { n: "02", label: "Also built", href: "#built" },
+  { n: "03", label: "Experience", href: "#experience" },
+  { n: "04", label: "About", href: "#about" },
+  { n: "05", label: "Now", href: "/now" },
 ];
 
 // At-a-glance band: the things a recruiter scans for in the first five seconds.
 const GLANCE = [
   { k: "Focus", v: "Python · pandas · SQL · T-SQL · Power BI · DAX" },
-  { k: "Education", v: "WCTC — AAS, AI Data Specialist (2027)" },
+  { k: "Education", v: "WCTC · AAS, AI Data Specialist (2027)" },
   { k: "Certifications", v: "CompTIA A+ · Network+ · Cisco CCNA" },
   { k: "Status", v: "Open to part-time analyst work + internships" },
 ];
 
-const FILTER_TECH = ["Python", "SQL", "Power BI", "pandas", "ETL", "DAX"];
-
 export default function Home() {
-  const [filter, setFilter] = useState("All");
-  const filters = ["All", ...FILTER_TECH];
-  const filtered =
-    filter === "All"
-      ? projects
-      : projects.filter((p) => projectUsesFilterTech(p.tech, filter));
-
   return (
     <div className="mx-auto w-full max-w-[1240px] lg:grid lg:grid-cols-[300px_1fr]">
       {/* ── Persistent identity rail: name, status, nav, résumé, contacts ── */}
-      <aside className="flex flex-col gap-10 border-b border-line px-7 py-12 sm:px-12 lg:sticky lg:top-0 lg:h-screen lg:justify-between lg:border-r lg:border-b-0 lg:px-10 lg:py-14">
+      <aside className="flex flex-col gap-10 border-b border-line px-7 py-12 sm:px-12 lg:sticky lg:top-0 lg:h-screen lg:justify-between lg:overflow-y-auto lg:border-r lg:border-b-0 lg:px-10 lg:py-14">
         <div>
           <Image
             src="/headshot_1000.jpg"
@@ -78,7 +57,7 @@ export default function Home() {
           </h1>
           <p className="mt-2.5 text-sm text-[var(--accent)]">Junior Data Analyst</p>
           <p className="mt-3.5 flex items-center gap-2 text-xs text-muted">
-            <span className="h-[7px] w-[7px] rounded-full bg-emerald-400 shadow-[0_0_0_3px_rgba(52,211,153,0.15)]" />
+            <span className="h-[6px] w-[6px] rounded-full bg-[var(--accent)]" />
             Open to analyst roles &amp; internships
           </p>
 
@@ -135,7 +114,7 @@ export default function Home() {
       {/* ── Content column ── */}
       <main id="main" className="min-w-0">
         <section className="px-7 pt-14 pb-12 sm:px-12 lg:pt-24">
-          <p className="eyebrow">Junior Data Analyst · Pewaukee, WI</p>
+          <p className="eyebrow">Portfolio · Pewaukee, WI · remote ok</p>
           <h2 className="mt-4 max-w-[15ch] font-serif text-[2.5rem] font-medium leading-[1.08] tracking-tight text-ink sm:text-[3.1rem]">
             Junior data analyst, pivoting in from IT support.
           </h2>
@@ -159,81 +138,57 @@ export default function Home() {
 
         {/* selected work */}
         <section id="work" className="scroll-mt-6 px-7 sm:px-12">
-          <div className="flex items-baseline justify-between gap-4 pt-16 pb-4">
-            <h2 className="font-serif text-base text-ink">Selected work</h2>
-            <span className="font-mono text-[11px] text-faint">
-              {filtered.length} of {projects.length}
-            </span>
-          </div>
+          <WorkList projects={projects} />
+        </section>
 
-          <div role="group" aria-label="Filter projects by technology" className="flex flex-wrap gap-x-5 gap-y-2 pb-2">
-            {filters.map((f) => (
-              <button
-                key={f}
-                type="button"
-                onClick={() => setFilter(f)}
-                aria-pressed={filter === f}
-                className={`focus-ring font-mono text-xs tracking-wide transition-colors ${
-                  filter === f
-                    ? "text-[var(--accent)] underline decoration-[var(--accent)] underline-offset-4"
-                    : "text-faint hover:text-muted"
-                }`}
+        {/* also built */}
+        <section id="built" className="scroll-mt-6 px-7 pt-16 sm:px-12">
+          <div className="flex items-baseline justify-between gap-4 pb-2">
+            <h2 className="font-serif text-base text-ink">Also built</h2>
+            <span className="font-mono text-[11px] text-faint">study tools, still in use</span>
+          </div>
+          <p className="mt-3 max-w-[64ch] text-[0.95rem] leading-relaxed text-body">
+            The work above was assigned. These two weren&apos;t. Both run real
+            code in the browser and I still use them to study.
+          </p>
+          <ul className="mt-2">
+            {sideProjects.map((p) => (
+              <li
+                key={p.slug}
+                className="grid gap-x-8 gap-y-2 border-t border-line py-7 sm:grid-cols-[200px_1fr]"
               >
-                {f.toLowerCase()}
-              </button>
-            ))}
-          </div>
-
-          {filtered.length === 0 ? (
-            <p className="border-t border-line py-10 text-sm text-muted">
-              No flagship project tagged {filter}. The side projects below use a wider stack.
-            </p>
-          ) : (
-            <ol>
-              {filtered.map((p, i) => (
-                <li
-                  key={p.slug}
-                  className="grid grid-cols-[2.25rem_1fr] gap-x-4 border-t border-line py-9 first:border-t-0 sm:gap-x-6"
-                >
-                  <div className="pt-2 font-mono text-xs text-[var(--accent)]">
-                    {String(i + 1).padStart(2, "0")}
+                <div>
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring inline-flex items-baseline gap-1.5 font-serif text-xl text-ink transition-colors hover:text-[var(--accent)]"
+                  >
+                    {p.title}
+                    <span aria-hidden className="text-[var(--accent)]">
+                      ↗
+                    </span>
+                  </a>
+                  <div className="mt-1.5 font-mono text-[11px] text-faint">
+                    {p.tech.map((t) => t.toLowerCase()).join(" · ")}
                   </div>
-                  <article className="min-w-0">
-                    <h3 className="font-serif text-2xl leading-tight tracking-tight text-ink sm:text-[1.7rem]">
-                      {p.title}
-                    </h3>
-                    <p className="mt-1.5 text-[0.95rem] text-muted">{p.tagline}</p>
-                    <p className="mt-3.5 max-w-[64ch] text-[0.95rem] leading-relaxed text-body">
-                      {p.description}
-                    </p>
-                    <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
-                      <span className="font-mono text-[11px] tracking-wide text-faint">
-                        {p.tech.map((t) => t.toLowerCase()).join(" · ")}
-                      </span>
-                      <span className="flex shrink-0 gap-5 text-sm">
-                        {p.demoUrl && (
-                          <Link
-                            href={p.demoUrl}
-                            className="focus-ring border-b border-[var(--accent)] pb-0.5 font-medium text-[var(--accent)] transition hover:opacity-80"
-                          >
-                            {p.demoLabel ?? "Open"} →
-                          </Link>
-                        )}
-                        <a
-                          href={p.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="focus-ring border-b border-line-2 pb-0.5 text-muted transition hover:text-ink"
-                        >
-                          Source
-                        </a>
-                      </span>
-                    </div>
-                  </article>
-                </li>
-              ))}
-            </ol>
-          )}
+                </div>
+                <div className="min-w-0">
+                  <p className="max-w-[60ch] text-sm leading-relaxed text-body">
+                    {p.description}
+                  </p>
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring mt-2 inline-block border-b border-line-2 pb-0.5 text-sm text-muted transition hover:text-ink"
+                  >
+                    Source
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* experience */}
@@ -267,49 +222,6 @@ export default function Home() {
               page has the running log.
             </p>
           </div>
-        </section>
-
-        {/* also built */}
-        <section className="px-7 pt-16 sm:px-12">
-          <div className="flex items-baseline justify-between gap-4 pb-2">
-            <h2 className="font-serif text-base text-ink">Also built</h2>
-            <span className="font-mono text-[11px] text-faint">study tools, still in use</span>
-          </div>
-          <ul>
-            {sideProjects.map((p) => (
-              <li
-                key={p.slug}
-                className="grid gap-x-8 gap-y-2 border-t border-line py-7 sm:grid-cols-[200px_1fr]"
-              >
-                <div>
-                  <a
-                    href={p.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="focus-ring font-mono text-[0.95rem] text-[var(--accent)] hover:underline underline-offset-4"
-                  >
-                    {p.title} ↗
-                  </a>
-                  <div className="mt-1.5 font-mono text-[11px] text-faint">
-                    {p.tech.map((t) => t.toLowerCase()).join(" · ")}
-                  </div>
-                </div>
-                <div className="min-w-0">
-                  <p className="max-w-[60ch] text-sm leading-relaxed text-body">
-                    {p.description}
-                  </p>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="focus-ring mt-2 inline-block border-b border-line-2 pb-0.5 text-sm text-muted transition hover:text-ink"
-                  >
-                    Source
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <footer className="mt-16 flex flex-col gap-2 border-t border-line px-7 py-8 font-mono text-[11px] tracking-wide text-faint sm:flex-row sm:items-center sm:justify-between sm:px-12">

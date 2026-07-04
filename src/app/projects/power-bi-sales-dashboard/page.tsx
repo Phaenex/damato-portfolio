@@ -67,7 +67,7 @@ export default function PowerBICaseStudy() {
       <section className="border-b border-stone-800/60">
         <div className="mx-auto max-w-3xl px-6 pt-10 pb-10">
           <Link
-            href="/#projects"
+            href="/#work"
             className="inline-flex items-center gap-1.5 rounded text-sm text-stone-300 hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -226,46 +226,30 @@ YoY Growth =
 
         <H2 id="screenshots">Screenshots</H2>
         <p className="mt-3">
-          These images are layout placeholders so the case study reads cleanly on
-          the web. The live report is on GitHub as a Power BI Project. Open{" "}
-          <Code>sales_dashboard.pbip</Code> in Desktop after cloning or unzipping.
+          These images are layout placeholders, not the real report. The report
+          itself is a Power BI Project on GitHub (<Code>sales_dashboard.pbip</Code>);
+          clone or download it and open it in Power BI Desktop to see the actual
+          visuals.
         </p>
-        <ul className="mt-3 list-disc space-y-2 pl-5 marker:text-stone-500">
-          <li>
-            <strong className="text-stone-100">Clone or ZIP:</strong>{" "}
-            <a
-              href="https://github.com/Damatnic/power-bi-sales-dashboard/archive/main.zip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded text-[var(--accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
-            >
-              Repo ZIP
-            </a>{" "}
-            ·{" "}
-            <a
-              href="https://github.com/Damatnic/power-bi-sales-dashboard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded text-[var(--accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
-            >
-              Repo (clone with Git)
-            </a>
-          </li>
-          <li>
-            In Power BI Desktop, use a{" "}
-            <strong className="text-stone-100">1920×1080</strong> canvas, hide
-            Filters / Bookmarks panes for the capture, reset slicers to a simple
-            story (for example latest full year), then export each page as PNG or
-            screenshot.
-          </li>
-          <li>
-            Drop exports into{" "}
-            <Code>public/projects/power-bi/</Code> as{" "}
-            <Code>page-1-sales-overview.png</Code>,{" "}
-            <Code>page-2-sales-details.png</Code>,{" "}
-            <Code>page-3-salary-analysis.png</Code>, redeploy.
-          </li>
-        </ul>
+        <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <a
+            href="https://github.com/Damatnic/power-bi-sales-dashboard/archive/main.zip"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded text-[var(--accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
+          >
+            Repo ZIP
+          </a>
+          <span className="text-stone-400">·</span>
+          <a
+            href="https://github.com/Damatnic/power-bi-sales-dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded text-[var(--accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
+          >
+            Repo (clone with Git)
+          </a>
+        </p>
 
         <figure className="mt-6 overflow-hidden rounded-xl border border-stone-800 bg-stone-950">
           <Image

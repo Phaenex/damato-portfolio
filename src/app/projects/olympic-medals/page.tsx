@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { useReducedMotion } from "framer-motion";
 import { ArrowLeft, Download, Search } from "lucide-react";
 import {
   BarChart,
@@ -61,6 +60,24 @@ function useHydrated(): boolean {
   );
 }
 
+/**
+ * Same useSyncExternalStore approach as useHydrated, but tracks a live media
+ * query instead of a one-time hydration flag: server snapshot is `false`
+ * (never animate on the server), client snapshot reads matchMedia directly
+ * and updates if the user flips the OS setting mid-session.
+ */
+function usePrefersReducedMotion(): boolean {
+  return useSyncExternalStore(
+    (callback) => {
+      const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+      mql.addEventListener("change", callback);
+      return () => mql.removeEventListener("change", callback);
+    },
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  );
+}
+
 const OLYMPICS_OPTIONS = ["All", "Tokyo 2020", "Beijing 2022"] as const;
 const CONTINENT_OPTIONS = [
   "All",
@@ -74,7 +91,7 @@ const MEDAL_OPTIONS = ["Gold", "Silver", "Bronze"] as const;
 
 export default function OlympicMedalsPage() {
   const chartsReady = useHydrated();
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const animateCharts = !reduceMotion;
 
   const [olympics, setOlympics] = useState<string>("All");
@@ -235,7 +252,7 @@ export default function OlympicMedalsPage() {
       <section className="border-b border-stone-800/60">
         <div className="mx-auto max-w-5xl px-6 pt-10 pb-10">
           <Link
-            href="/"
+            href="/#work"
             className="inline-flex items-center gap-1.5 rounded text-sm text-stone-300 hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -324,7 +341,7 @@ export default function OlympicMedalsPage() {
               >
                 <Download className="h-3.5 w-3.5" aria-hidden="true" />
                 Download CSV
-                <span className="text-stone-500">({filtered.length.toLocaleString()})</span>
+                <span className="text-stone-400">({filtered.length.toLocaleString()})</span>
               </button>
               <button
                 onClick={resetFilters}
@@ -375,7 +392,7 @@ export default function OlympicMedalsPage() {
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="e.g. Japan"
                   aria-label="Filter by country name"
-                  className="w-full rounded border border-stone-800 bg-stone-950 py-2 pl-8 pr-3 text-sm text-stone-200 placeholder:text-stone-500 focus:border-[var(--accent)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
+                  className="w-full rounded border border-stone-800 bg-stone-950 py-2 pl-8 pr-3 text-sm text-stone-200 placeholder:text-stone-400 focus:border-[var(--accent)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
                 />
               </div>
             </FilterGroup>

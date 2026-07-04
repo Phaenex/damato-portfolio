@@ -95,7 +95,7 @@ export default function NowPage() {
             href="https://nownownow.com/about"
             target="_blank"
             rel="noreferrer"
-            className="rounded text-stone-400 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
+            className="focus-ring rounded text-muted underline-offset-4 hover:underline"
           >
             nownownow.com
           </a>

@@ -1,6 +1,6 @@
 # damato-portfolio
 
-Personal portfolio (live: [damato-data.vercel.app](https://damato-data.vercel.app)).
+Personal portfolio (live: [nicholasdamato.vercel.app](https://nicholasdamato.vercel.app)).
 
 Stack, analytics, env vars, and deploy workflow are documented in [`AGENTS.md`](AGENTS.md). For local dev, copy [`env.example`](env.example) to `.env.local` and adjust `NEXT_PUBLIC_SITE_URL` if your dev port is not 3000. With `vercel link`, run `vercel env pull` to merge Vercel **Development** env vars into `.env.local` (review the file afterward).
 

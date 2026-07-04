@@ -12,8 +12,9 @@
   --body: #cfcac3;
   --muted: #8f8a84;
   /* Lightened from #5f5a54 to clear WCAG AA (4.5:1) on the near-black bg for the
-     small mono labels, numbers, and dates that use it. */
-  --faint: #7d766d;
+     small mono labels, numbers, and dates that use it. #7d766d only reached
+     4.41:1 (checked with the actual luminance formula); this shade clears 4.9:1. */
+  --faint: #857e74;
   --line: #241f1b;
   --line-2: #332c26;
 }

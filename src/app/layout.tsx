@@ -65,7 +65,8 @@ const personJsonLd = {
   "@type": "Person",
   name: "Nicholas D'Amato",
   url: SITE_URL,
-  jobTitle: "Junior Data Analyst",
+  description:
+    "Data analytics student at WCTC, pivoting from IT support. Python, SQL, Power BI.",
   email: "mailto:nickdamatoit@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Pewaukee", addressRegion: "WI" },
   sameAs: [

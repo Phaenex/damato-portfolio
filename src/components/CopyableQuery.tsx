@@ -55,7 +55,7 @@ export function CopyableQuery({ title, why, sql }: CopyableQueryProps) {
         <code>{sql}</code>
       </pre>
       <figcaption className="border-t border-stone-800 bg-stone-950 px-4 py-3 text-xs text-stone-400">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-stone-500">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-stone-400">
           why
         </span>
         <span className="ml-2 text-stone-300">{why}</span>

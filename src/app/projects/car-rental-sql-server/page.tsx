@@ -53,7 +53,7 @@ export default function CarRentalCaseStudy() {
       <section className="border-b border-stone-800/60">
         <div className="mx-auto max-w-3xl px-6 pt-10 pb-10">
           <Link
-            href="/#projects"
+            href="/#work"
             className="inline-flex items-center gap-1.5 rounded text-sm text-stone-300 hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
