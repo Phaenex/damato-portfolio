@@ -10,13 +10,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **Key conventions:**
 - Tailwind v4 uses `@tailwindcss/postcss`, not v3's config file
-- OG images are static `.png` files in route directories — Next.js file conventions
+- OG images are `opengraph-image.tsx` / `twitter-image.tsx` files in route directories — Next.js file conventions. Every route has both.
 - The Olympic medals dashboard page uses `useMemo` + `useState` (client component), everything else is server components
 - Color palette: `stone-950` bg, `stone-100` text, accent via CSS var `--accent`
 
 **Key data files:**
 - `src/lib/projects.ts` — `projects[]` (3 flagship) + `sideProjects[]` (3 "Also Built"). Edit descriptions here.
-- `src/data/olympic-medals.json` — 1,343 medal records for the interactive dashboard
+- `public/olympic-medals.json` — 1,343 medal records for the interactive dashboard (fetched client-side by the Olympic medals page)
 - `public/projects/power-bi/page-*.png` — Power BI case study images (layout placeholders until Desktop exports land). PBIP source repo: https://github.com/Damatnic/power-bi-sales-dashboard (ZIP download). Vault ops note: `Obsidian Vault/System/About Nick/damato-data Portfolio.md`.
 
 **Adding a new project:**

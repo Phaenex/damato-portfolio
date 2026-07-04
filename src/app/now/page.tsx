@@ -12,15 +12,11 @@ export const metadata = {
     description: NOW_DESC,
     type: "website",
     url: "/now",
-    // A child openGraph block replaces (not merges) the root's, so re-point at
-    // the root's generated card or /now would lose its og:image.
-    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Now | Nicholas D'Amato",
     description: NOW_DESC,
-    images: ["/twitter-image"],
   },
 };
 

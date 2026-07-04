@@ -77,7 +77,7 @@ export default function Home() {
             Nicholas D&apos;Amato
           </h1>
           <p className="mt-2.5 text-sm text-[var(--accent)]">Junior Data Analyst</p>
-          <p className="mt-3.5 inline-flex items-center gap-2 text-xs text-muted">
+          <p className="mt-3.5 flex items-center gap-2 text-xs text-muted">
             <span className="h-[7px] w-[7px] rounded-full bg-emerald-400 shadow-[0_0_0_3px_rgba(52,211,153,0.15)]" />
             Open to analyst roles &amp; internships
           </p>
@@ -124,8 +124,8 @@ export default function Home() {
               rel="noopener noreferrer"
               className="focus-ring inline-flex items-center gap-2.5 text-muted transition-colors hover:text-[var(--accent)]"
             >
-              <Linkedin className="h-3.5 w-3.5 text-faint" />
-              linkedin.com/in/nicholas-damato2
+              <Linkedin className="h-3.5 w-3.5 shrink-0 text-faint" />
+              <span className="break-all">linkedin.com/in/nicholas-damato2</span>
             </a>
           </div>
           <p className="text-xs text-faint">Pewaukee, WI · Remote ok</p>
@@ -251,7 +251,7 @@ export default function Home() {
               the data turns out to be a pretty good head start for moving into
               analytics, especially when half the job is figuring out what the
               data is actually saying versus what people{" "}
-              <em className="font-serif italic text-ink">think</em> it&apos;s
+              <em className="font-serif italic text-ink">think</em>{" "}it&apos;s
               saying.
             </p>
             <p>
