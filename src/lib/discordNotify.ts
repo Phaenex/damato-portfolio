@@ -28,13 +28,15 @@ export async function notifyVipAlert(notice: VipAlertNotice, fetchImpl: typeof f
   const body = {
     embeds: [
       {
-        title: `🚨 Anthropic visitor — ${site}`,
+        title: `🌟 VIP visitor — ${site}`,
+        url: siteUrl,
         description: [
           `**Page:** ${path ?? '/'}`,
           `**Detection:** ${detectionReason}`,
           `**IP:** ${ip ?? 'unknown'}${org ? ` (${org})` : ''}`,
           `**Location:** ${location}`,
-          siteUrl,
+          '',
+          `🔗 [Open the site](${siteUrl})`,
         ].join('\n'),
         color: 0xe8a838,
       },

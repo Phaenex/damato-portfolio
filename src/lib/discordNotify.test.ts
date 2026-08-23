@@ -35,7 +35,9 @@ describe("notifyVipAlert", () => {
     expect(opts.method).toBe("POST");
     const body = JSON.parse(opts.body);
     expect(body.embeds[0].title).toContain("damato-portfolio");
+    expect(body.embeds[0].url).toBe(notice.siteUrl);
     expect(body.embeds[0].description).toContain("/resume");
+    expect(body.embeds[0].description).toContain(`[Open the site](${notice.siteUrl})`);
   });
 
   it("never throws on a non-2xx response", async () => {
