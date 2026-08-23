@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { notifyVipAlert } from './discordNotify';
 
 const ANTHROPIC_UA_REGEX = /anthropic|claudebot|claude-web|claude-ai/i;
 
@@ -169,6 +170,18 @@ export async function checkAndAlertVip(input: VipCheckInput): Promise<void> {
   const rawIp = ip ?? 'unknown';
   const cleanIpForCooldown = (rawIp.split(',')[0] ?? rawIp).trim();
   if (await isOnCooldown(cleanIpForCooldown)) return;
+
+  void notifyVipAlert({
+    site,
+    path,
+    detectionReason,
+    ip,
+    org,
+    city: resolvedCity,
+    country: resolvedCountry,
+    siteUrl,
+  });
+  void setCooldown(cleanIpForCooldown);
 
   const resendKey = process.env.RESEND_API_KEY?.trim();
   const alertTo = process.env.VIP_ALERT_EMAIL?.trim() || process.env.NOTIFY_EMAIL_TO?.trim();
