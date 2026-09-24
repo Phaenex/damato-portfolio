@@ -36,10 +36,26 @@ export async function POST(req: NextRequest) {
   });
 
   const resendKey = process.env.RESEND_API_KEY;
-  const notifyTo =
-    process.env.NOTIFY_EMAIL_TO || process.env.VIP_ALERT_EMAIL || "damatnic@gmail.com";
+  const notifyTo = process.env.NOTIFY_EMAIL_TO || process.env.VIP_ALERT_EMAIL;
 
   if (resendKey) {
+    // A configured Resend key with no recipient used to fall back to a
+    // hardcoded personal address — silently mailing a real notification to
+    // whichever address happened to be typed in here at the time, invisible
+    // to whoever reads the env vars later. Require the recipient explicitly
+    // instead: fail loudly (server log + 500) so a misconfigured deploy is
+    // caught immediately rather than quietly notifying the wrong inbox.
+    // sendBeacon() on the client doesn't read this response, so a 500 here
+    // never affects the actual PDF download.
+    if (!notifyTo) {
+      console.error(
+        "[resume-download] RESEND_API_KEY is set but NOTIFY_EMAIL_TO / VIP_ALERT_EMAIL is not — cannot send the download alert",
+      );
+      return NextResponse.json(
+        { ok: false, error: "notification recipient not configured" },
+        { status: 500 },
+      );
+    }
     try {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
