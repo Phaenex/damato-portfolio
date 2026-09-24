@@ -70,7 +70,7 @@ const personJsonLd = {
   email: "mailto:nickdamatoit@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Pewaukee", addressRegion: "WI" },
   sameAs: [
-    "https://github.com/Damatnic",
+    "https://github.com/Phaenex",
     "https://linkedin.com/in/nicholas-damato2",
   ],
   alumniOf: [

@@ -1,7 +1,7 @@
 /**
  * /api/pixel — 1×1 transparent GIF tracking pixel.
  *
- * Embedded in the Damatnic GitHub profile README via an <img> tag so we get
+ * Embedded in the Phaenex GitHub profile README via an <img> tag so we get
  * a visit signal when someone views the profile page. Runs the same Anthropic
  * detection logic as /api/track so Anthropic reviewers trigger an immediate
  * email alert regardless of which property they visit first.

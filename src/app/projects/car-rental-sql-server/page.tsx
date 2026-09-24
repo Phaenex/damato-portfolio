@@ -73,7 +73,7 @@ export default function CarRentalCaseStudy() {
           </p>
           <p className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
             <a
-              href="https://github.com/Damatnic/car-rental-sql-server"
+              href="https://github.com/Phaenex/car-rental-sql-server"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded text-[var(--accent)] hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
@@ -83,7 +83,7 @@ export default function CarRentalCaseStudy() {
             </a>
             <span className="text-stone-400">·</span>
             <a
-              href="https://github.com/Damatnic/car-rental-sql-server/blob/main/car_rental_database.sql"
+              href="https://github.com/Phaenex/car-rental-sql-server/blob/main/car_rental_database.sql"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded text-stone-300 hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"

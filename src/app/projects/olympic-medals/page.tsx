@@ -269,7 +269,7 @@ export default function OlympicMedalsPage() {
           </p>
           <p className="mt-2 text-sm">
             <a
-              href="https://github.com/Damatnic/olympic-medal-etl"
+              href="https://github.com/Phaenex/olympic-medal-etl"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded text-[var(--accent)] hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
@@ -288,7 +288,7 @@ export default function OlympicMedalsPage() {
           >
             Couldn&apos;t load the medal dataset. Refresh to try again, or browse the{" "}
             <a
-              href="https://github.com/Damatnic/olympic-medal-etl"
+              href="https://github.com/Phaenex/olympic-medal-etl"
               target="_blank"
               rel="noopener noreferrer"
               className="underline underline-offset-4"
@@ -574,7 +574,7 @@ export default function OlympicMedalsPage() {
           <p className="mt-3">
             The charts and table are filtered client-side from the same
             1,343-row file. ETL source lives on{" "}
-            <a href="https://github.com/Damatnic/olympic-medal-etl" target="_blank" rel="noopener noreferrer" className="rounded text-[var(--accent)] hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950">
+            <a href="https://github.com/Phaenex/olympic-medal-etl" target="_blank" rel="noopener noreferrer" className="rounded text-[var(--accent)] hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950">
               GitHub
             </a>
             .

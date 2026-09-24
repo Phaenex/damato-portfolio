@@ -26,7 +26,7 @@ export const sideProjects: SideProject[] = [
     description:
       "Couldn't find a Python lessons site that ran real code against real data and tracked what I'd forgotten. Built one. 61 lessons across 11 modules, Pyodide in a Web Worker (real infinite-loop kill), pandas + numpy preloaded, a real spaced-repetition queue that resurfaces lessons as they come due. Runs entirely in the browser, no signup.",
     tech: ["Next.js", "TypeScript", "Pyodide (Worker)", "Tailwind"],
-    github: "https://github.com/Damatnic/python-mastery",
+    github: "https://github.com/Phaenex/python-mastery",
     liveUrl: "https://damato-python.vercel.app",
   },
   {
@@ -35,7 +35,7 @@ export const sideProjects: SideProject[] = [
     description:
       "Same thing for SQL, built the semester I was taking Advanced SQL at WCTC. 55 lessons across 11 modules, real SQLite via sql.js, an AI tutor prompted to ask before answering, a /stats view with rank ladder and review queue. The playground hits the same engine the lessons use. Type `help` in the shell on the homepage.",
     tech: ["Next.js", "TypeScript", "SQL.js", "OpenAI", "Tailwind"],
-    github: "https://github.com/Damatnic/sql-mastery",
+    github: "https://github.com/Phaenex/sql-mastery",
     liveUrl: "https://damato-sql.vercel.app",
   },
 ];
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "ETL",
       "SQL Server",
     ],
-    github: "https://github.com/Damatnic/olympic-medal-etl",
+    github: "https://github.com/Phaenex/olympic-medal-etl",
     demoUrl: "/projects/olympic-medals",
     demoLabel: "Try the dashboard",
   },
@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "Partitioning",
       "Triggers",
     ],
-    github: "https://github.com/Damatnic/car-rental-sql-server",
+    github: "https://github.com/Phaenex/car-rental-sql-server",
     demoUrl: "/projects/car-rental-sql-server",
     demoLabel: "Read the case study",
   },
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       "Salary versus review-score analysis using a 1:1 relationship between Sales Reviews and Employee",
     ],
     tech: ["Power BI", "DAX", "Star Schema"],
-    github: "https://github.com/Damatnic/power-bi-sales-dashboard",
+    github: "https://github.com/Phaenex/power-bi-sales-dashboard",
     demoUrl: "/projects/power-bi-sales-dashboard",
     demoLabel: "Read the case study",
   },

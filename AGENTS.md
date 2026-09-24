@@ -17,7 +17,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 **Key data files:**
 - `src/lib/projects.ts` — `projects[]` (3 flagship) + `sideProjects[]` (2 "Also Built"). Edit descriptions here.
 - `public/olympic-medals.json` — 1,343 medal records for the interactive dashboard (fetched client-side by the Olympic medals page)
-- `public/projects/power-bi/page-*.png` — Power BI case study images (layout placeholders until Desktop exports land). PBIP source repo: https://github.com/Damatnic/power-bi-sales-dashboard (ZIP download). Vault ops note: `Obsidian Vault/System/About Nick/damato-data Portfolio.md`.
+- `public/projects/power-bi/page-*.png` — Power BI case study images (layout placeholders until Desktop exports land). PBIP source repo: https://github.com/Phaenex/power-bi-sales-dashboard (ZIP download). Vault ops note: `Obsidian Vault/System/About Nick/damato-data Portfolio.md`.
 
 **Adding a new project:**
 1. Add entry to `projects[]` or `sideProjects[]` in `src/lib/projects.ts`

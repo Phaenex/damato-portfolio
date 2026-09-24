@@ -89,13 +89,13 @@ export default function Home() {
               nickdamatoit@gmail.com
             </a>
             <a
-              href="https://github.com/Damatnic"
+              href="https://github.com/Phaenex"
               target="_blank"
               rel="noopener noreferrer"
               className="focus-ring inline-flex items-center gap-2.5 text-muted transition-colors hover:text-[var(--accent)]"
             >
               <Github className="h-3.5 w-3.5 text-faint" />
-              github.com/Damatnic
+              github.com/Phaenex
             </a>
             <a
               href="https://linkedin.com/in/nicholas-damato2"

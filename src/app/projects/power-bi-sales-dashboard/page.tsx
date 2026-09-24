@@ -88,7 +88,7 @@ export default function PowerBICaseStudy() {
           </p>
           <p className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
             <a
-              href="https://github.com/Damatnic/power-bi-sales-dashboard"
+              href="https://github.com/Phaenex/power-bi-sales-dashboard"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded text-[var(--accent)] hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
@@ -98,7 +98,7 @@ export default function PowerBICaseStudy() {
             </a>
             <span className="text-stone-400">·</span>
             <a
-              href="https://github.com/Damatnic/power-bi-sales-dashboard/archive/main.zip"
+              href="https://github.com/Phaenex/power-bi-sales-dashboard/archive/main.zip"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded text-stone-300 hover:text-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
@@ -235,7 +235,7 @@ YoY Growth =
         </p>
         <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           <a
-            href="https://github.com/Damatnic/power-bi-sales-dashboard/archive/main.zip"
+            href="https://github.com/Phaenex/power-bi-sales-dashboard/archive/main.zip"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded text-[var(--accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
@@ -244,7 +244,7 @@ YoY Growth =
           </a>
           <span className="text-stone-400">·</span>
           <a
-            href="https://github.com/Damatnic/power-bi-sales-dashboard"
+            href="https://github.com/Phaenex/power-bi-sales-dashboard"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded text-[var(--accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
